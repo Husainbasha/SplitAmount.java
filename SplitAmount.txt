@@ -1,0 +1,35 @@
+import java.util.Scanner;
+
+public class Main{
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        double[] spent = new double[4];
+        double total = 0;
+
+        // Input: amount spent by each person
+        for (int i = 0; i < 4; i++) {
+            //(i+1):increasing the no of persons
+            System.out.print("Enter amount spent by Person " + (i + 1) + ": ");
+            spent[i] = scanner.nextDouble();
+            total += spent[i];
+        }
+         // calcilate an average of each person 
+        double average = total / 4;
+        System.out.println("\nTotal spent: ₹" + total);
+        System.out.println("Each person should pay: ₹" + average);
+
+        // Calculate how much the person receive and person paid
+        for (int i = 0; i < 4; i++) {
+            double diff = spent[i] - average;
+            if (diff > 0) {
+                System.out.printf("Person %d will receive ₹%.2f\n", i + 1, diff);
+            } else if (diff < 0) {
+                System.out.printf("Person %d will pay ₹%.2f\n", i + 1, -diff);
+            } else {
+                System.out.printf("Person %d is settled.\n", i + 1);
+            }
+        }
+
+        scanner.close();
+    }
+}
