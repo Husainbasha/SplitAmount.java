@@ -45,7 +45,7 @@ public class Main {
         System.out.println("\n--- Settlements ---");
         for (int i = 0; i < n; i++) {
             if (balance[i] < 0) { // Person i pays
-                for (int j = 0; j < 4; j++) {
+                for (int j = 0; j < n; j++) {
                     if (balance[j] > 0) { // Person j receives
                         double amount = Math.min(-balance[i], balance[j]);
                         if (amount > 0) {
